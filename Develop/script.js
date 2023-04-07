@@ -14,7 +14,7 @@ $(function () {
     var text = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
     localStorage.setItem(time, text);
-  })
+  });
 
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -23,18 +23,18 @@ $(function () {
   // current hour in 24-hour time?
   //
   $(".time-block").each(function(){
-    var currentTime =dayjs().hour();
+    var currentTime = dayjs().hour();
 
     if(hour < currentTime){
-      $(this).addClass(".past")
+      $(this).addClass(".past");
     }
     else if(hour === currentTime){
-      $(this).addClass(".present")
+      $(this).addClass(".present");
     }
     else(hour > currentTime){
-      $(this).addClass(".future")
+      $(this).addClass(".future");
     }
-  })
+  });
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -46,7 +46,7 @@ $(function () {
     if (savedInput !== null){
       $(this).children(".description").val(savedInput);
     }
-  })
+  });
 
   // TODO: Add code to display the current date in the header of the page.
   $("#currentDay").text(dayjs().format("dddd, MMMM DD"));
