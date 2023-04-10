@@ -13,7 +13,7 @@ $('#currentDay').text(currentDay);
    
   $(".time-block").each(function(){
     var pastHour = parseInt($(this).attr("id"));
-    var currentTime = dayjs().hour();
+    var currentTime = dayjs();
 
     if(pastHour < currentTime){
       $(this).addClass("past");
@@ -21,7 +21,7 @@ $('#currentDay').text(currentDay);
     else if(pastHour === currentTime){
       $(this).addClass("present");
     }
-    else{
+    else(pastHour > currentTime);{
       $(this).addClass("future");
     }
   });
@@ -41,7 +41,7 @@ $('#currentDay').text(currentDay);
     $(".saveBtn").on("click", function(){
       var pastHour = $(this).siblings(".hour").text().trim();
       var text = $(this).siblings(".description").val().trim();
-      localStorage.setItem(pastHour, text);
+      localStorage.setItem(Hour, text);
     });
 
     $(".description").each(function(){
